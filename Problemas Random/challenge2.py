@@ -27,14 +27,10 @@ def anagrams(s1, s2):
 		i = 0
 		j = 0
 		while (i < len(s1)):
-			if (s1[i] not in s2 or s2[i] not in s1):
+			if (s1[i] not in s2 or s2[i] not in s1 or (s1.count(s1[i]) != s2.count(s1[i])) or (s1.count(s2[i]) != s2.count(s2[i]))):
 				return False
 			i += 1
 		return True
-
-fileContent = ''
-with open('wl.txt') as f:
-	fileContent = f.readlines()
 
 def parseN(l):
 	i = 0
@@ -54,22 +50,16 @@ def anagramsInList(word, l):
 		i += 1
 	return returnList
 
-#print parseN(fileContent)
-def find(word, l):
-	if word in l:
-		return True
-	else:
-		return False
+fileContent = ''
+with open('wl.txt') as f:
+	fileContent = f.readlines()
 
+parseN(fileContent)
 
-
-#print find('post', parseN(fileContent))
-#print anagrams('post', 'spot')
-print 'able: ' + str(anagramsInList('able', parseN(fileContent)))
-print 'apple: ' + str(anagramsInList('apple', parseN(fileContent)))
-print 'post: ' + str(anagramsInList('post', parseN(fileContent)))
-print 'reset: ' + str(anagramsInList('reset', parseN(fileContent)))
-#print anagrams('spot', parseN(fileContent))
+print 'able: ' + str(anagramsInList('able', fileContent))
+print 'apple: ' + str(anagramsInList('apple', fileContent))
+print 'post: ' + str(anagramsInList('post', fileContent))
+print 'reset: ' + str(anagramsInList('reset', fileContent))
 
 
 
