@@ -20,7 +20,7 @@ def showQueue(q):
 		print q.get()
 
 
-fifoQueue(q1, [0, 1, 2, 3])
+fifoQueue(q1, [3, 7, 6, 1])
 print 'fifoQueue: '
 showQueue(q1)
 
