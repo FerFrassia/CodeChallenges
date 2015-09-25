@@ -1,6 +1,7 @@
 primesList = []
 
 def primeFactorization(n, i):
+	global primesList
 	if (n == 1 and i == 2):
 		primesList.append((n, 1))
 	elif (n == 1):
@@ -34,16 +35,16 @@ def sngint(n):
 		while (i < len(l)):
 			sngIntList.append(str(pow(l[i][0],l[i][1])))
 			i += 1
-		return ''.join(sngIntList)
+		return int(''.join(sngIntList))
 
 
 def sngForList(l):
+	global primesList
 	sngIntToReturn = []
 	for elem in l:
 		primesList = []
 		sngIntToReturn.append(sngint(elem))
 	return sngIntToReturn
-
 
 print sngForList([24, 5, 11])
 
