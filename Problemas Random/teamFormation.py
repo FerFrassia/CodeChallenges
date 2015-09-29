@@ -42,7 +42,7 @@ def show(h):
 		h.put(element)
 
 
-print 'minor team: ', createTeams([-4, -3, -2, -1, 0, 1, 2])
+print 'minor team: ', createTeams([-5, -4, -3, 2, 3, 4, 5, 7])
 
 
 
