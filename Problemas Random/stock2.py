@@ -1,16 +1,33 @@
-def bestProfit(stocks):
-	if (len(stocks) < 2):
-		return 'no profit possible'
-	else:
-		minStock = stocks[0]
-		profit = stocks[1] - minStock
-		i = 1
-		while (i < len(stocks)):
-			if (stocks[i] - minStock > profit):
-				profit = stocks[i] - minStock
-			if (stocks[i] < minStock):
-				minStock = stocks[i]
-			i += 1
-		return profit
+# returns best profit
+def stock(l):
+	bestMin = 0
+	bestProfit = 0
+	i = 0
+	while (i < len(l)):
+		if (l[i] < l[bestMin]):
+			bestMin = i
+		if (l[i] - l[bestMin] > bestProfit):
+			bestProfit = l[i] - l[bestMin]
+		i += 1
 
-print bestProfit([-1, -3, 5, 6, -20, 30])
+	return bestProfit
+
+#returns buying and selling indexes
+def stockIndex(l):
+	bestMin = 0
+	bestMax = 0
+	i = 0
+	while (i < len(l)):
+		if (l[i] < l[bestMin]):
+			bestMin = i
+		if (l[i]-l[bestMin] > l[bestMax]-l[bestMin]):
+			bestMax = i
+		i += 1
+
+	if (bestMin >= bestMax):
+		return (0, 0)
+	else:
+		return (bestMin, bestMax)
+
+print 'max profit: ' + str(stock([10, 9, 8, 7, 6, 5]))
+print 'max indexes: ' + str(stockIndex([10, 9, 8, 7, 6, 5]))
