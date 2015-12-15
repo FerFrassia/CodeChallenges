@@ -33,12 +33,14 @@ class SingleList(object):
 		return newNode
 
 	def reverseSubList(self, i, j):
+		print 'indexes: ' + str(i) + ', ' + str(j)
 		reversedList = SingleList()
 		currentNode = self.head
 		nodeIndex = 0
 		while (nodeIndex < i):
 			currentNode = currentNode.next
 			nodeIndex += 1
+		stopData = currentNode.data
 		while (nodeIndex <= j):
 			reversedList.appendFront(currentNode.data)
 			currentNode = currentNode.next
@@ -47,19 +49,20 @@ class SingleList(object):
 			reversedList.append(currentNode.data)
 			currentNode = currentNode.next
 
-		stopData = reversedList.head.data
-		curentReversedNode = reversedList.appendFront(self.head.data)
+		currentReversedNode = reversedList.appendFront(self.head.data)
 		currentNode = self.head.next
 
-		while (currentReversedNode.next.data != stopData):
-			
+		while (currentNode.data != stopData):
+			newNode = Node(currentNode.data, None)
+			newNode.next = currentReversedNode.next
+			currentReversedNode.next = newNode
+			currentReversedNode = newNode
+			currentNode = currentNode.next
 
-
-
+		print 'original: '
+		self.show()
+		print 'reversed: '
 		reversedList.show()
-
-
-
 
 
 l = SingleList()
@@ -67,7 +70,9 @@ l.append(1)
 l.append(2)
 l.append(3)
 l.append(4)
-l.reverseSubList(1, 2)
+l.append(5)
+l.append(6)
+l.reverseSubList(3, 5)
 
 
 

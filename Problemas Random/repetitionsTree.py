@@ -71,6 +71,32 @@ class BinaryTree(object):
 				else:
 					return right
 
+	def biggestSum(self, node):
+		if node is not None:
+			if node.left is None and node.right is None:
+				return (node.data, node.data)
+			else:
+				sumLeft = self.biggestSum(node.left)
+				sumRight = self.biggestSum(node.right)
+
+				maxSum = max(sumLeft[0], sumRight[0], sumLeft[1] + sumRight[1] + node.data)
+				maxBranch = max(sumLeft[1] + node.data, sumRight[1] + node.data)
+
+				return (maxSum, maxBranch)
+
+		else:
+			return (0, 0)
+
+	def height(self, node, n):
+		if node is not None:
+			n += 1;
+			if (node.left is None and node.right is None):
+				return n
+			else:
+				return max(self.height(node.left, n), self.height(node.right, n));
+		else:
+			return 0
+
 	def inOrder(self, node):
 		if (node is not None):
 			self.inOrder(node.left)
@@ -87,18 +113,20 @@ class BinaryTree(object):
 				return self.repetitions(node.left, e) + self.repetitions(node.right, e)
 
 t = BinaryTree()
-t.add(10)
-t.add(3)
-t.add(6)
-t.add(2)
-t.add(20)
-t.add(15)
-t.add(14)
-t.add(18)
+t.add(50)
+t.add(40)
 t.add(30)
-t.add(25)
-t.add(22)
-t.add(35)
+t.add(20)
+t.add(60)
+t.add(70)
+t.add(80)
+# t.add(15)
+# t.add(14)
+# t.add(18)
+# t.add(30)
+# t.add(25)
+# t.add(22)
+# t.add(35)
 # t.add(10)
 # print 'repetitions of 5: ' + str(t.repetitions(t.root, 5))
 print 'tree'
@@ -107,7 +135,8 @@ t.show(t.root)
 # t.inOrder(t.root)
 # t.mostRepeated(t.root, t.root.data, 0)
 # print 'most repeated: ' + str(t.mostRepeatedAll)
-print 'lowest 14, 35: ' + str(t.lowestCommonAncestor(t.root, 2, 6))
+# print 'lowest 14, 35: ' + str(t.lowestCommonAncestor(t.root, 2, 6))
+print 'biggest sum: ' + str(t.biggestSum(t.root))
 
 
 
