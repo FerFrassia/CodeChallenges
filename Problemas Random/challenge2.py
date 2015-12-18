@@ -22,5 +22,5 @@
 
 with open('wl.txt') as f:
     fileContent = map(lambda x: x.strip(), f.readlines())
-print filter(lambda x: sorted(x) == sorted('reset'), fileContent)
+# print filter(lambda x: sorted(x) == sorted('reset'), fileContent)
 print [e for e in fileContent if sorted(e) == sorted('reset')]
