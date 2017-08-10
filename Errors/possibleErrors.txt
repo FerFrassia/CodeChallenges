@@ -1,0 +1,3 @@
+Swift:
+	String: - count: s.characters.count
+			- sort: s.characters.sorted   // returns [Character]
