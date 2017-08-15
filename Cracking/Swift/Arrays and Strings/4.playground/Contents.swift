@@ -16,10 +16,34 @@ func checkForPalindrome(s: String) -> Bool {
     for (_, charCount) in dict {
         if charCount % 2 != 0 {oddCharacters += 1}
     }
-    
     return oddCharacters < 2
+}
+
+enum PalindromeErrors: Error {
+    case noPosiblePalindrome
+}
+
+func possiblePalindromes(s: String) throws -> [String] {
+    guard checkForPalindrome(s: s) else {throw PalindromeErrors.noPosiblePalindrome}
+    var m = [[String]]()
+    for i in 1...s.count {
+
+    }
+
+    return [s]
 }
 
 
 
-print(checkForPalindrome(s: "abbca"))
+
+
+
+
+
+
+
+
+
+assert(checkForPalindrome(s: "abbca"), "palindrome check wrong for abbca")
+//print(checkForPalindrome(s: "abbca"))
+

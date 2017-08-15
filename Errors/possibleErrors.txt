@@ -1,7 +1,12 @@
 Swift:
 	String: - count: s.characters.count
 			- sort: s.characters.sorted   // returns [Character]
+			- let index = greeting.index(greeting.startIndex, offsetBy: 7)
 
 	Throws: - va antes del return type
 			- enum exceptions conforms to Error
 			- inout example: func swap(a: inout Int, b: inout Int)
+
+	Assert: - assert(checkForPalindrome(s: "abbca"), "palindrome check wrong for abbca")
+
+	For: - index is let by default, to change: for var i in 0...collection.count-1 {}
