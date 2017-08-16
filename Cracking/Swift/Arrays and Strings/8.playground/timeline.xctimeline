@@ -2,5 +2,10 @@
 <Timeline
    version = "3.0">
    <TimelineItems>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "file:///Users/fer/Documents/Workspace/CodeChallenges/Cracking/Swift/Arrays%20and%20Strings/8.playground#CharacterRangeLen=1&amp;CharacterRangeLoc=847&amp;EndingColumnNumber=0&amp;EndingLineNumber=29&amp;StartingColumnNumber=26&amp;StartingLineNumber=28&amp;Timestamp=524513759.952869"
+         selectedRepresentationIndex = "0"
+         shouldTrackSuperviewWidth = "NO">
+      </LoggerValueHistoryTimelineItem>
    </TimelineItems>
 </Timeline>
