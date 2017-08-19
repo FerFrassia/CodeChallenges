@@ -10,3 +10,5 @@ Swift:
 	Assert: - assert(checkForPalindrome(s: "abbca"), "palindrome check wrong for abbca")
 
 	For: - index is let by default, to change: for var i in 0...collection.count-1 {}
+
+	Arrays: - fixed size: arr = [T?](repeating: nil, count: length)
