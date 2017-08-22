@@ -12,3 +12,5 @@ Swift:
 	For: - index is let by default, to change: for var i in 0...collection.count-1 {}
 
 	Arrays: - fixed size: arr = [T?](repeating: nil, count: length)
+
+	Mutating: - cuando una función cambia las propiedades del struct
