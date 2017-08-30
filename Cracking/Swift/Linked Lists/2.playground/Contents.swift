@@ -8,10 +8,12 @@ class Node<T> {
 }
 
 class List<T: Hashable> {
-    var head: Node<T>?
+    private var head: Node<T>?
+    private var size: Int
     
     init() {
-        self.head = nil
+        head = nil
+        size = 0
     }
     
     func append(element: T) {
@@ -29,6 +31,8 @@ class List<T: Hashable> {
         } else {
             head = newNode
         }
+        
+        size += 1
     }
     
     func toArray() -> [T] {
@@ -41,24 +45,22 @@ class List<T: Hashable> {
         return arr
     }
     
-    func removeDuplicates() {
-        var prev = head
-        var current = prev?.next
-        var seen = Set<T>()
-        if let prev = prev {seen.insert(prev.data)}
-
-        while current != nil {
-            if seen.contains(current!.data) {
-                prev?.next = current?.next
-            } else {
-                seen.insert(current!.data)
-                prev = current
-            }
+    func kToLast(k: Int) -> Node<T>? {
+        guard k < size else {return nil}
+        var current = head
+        var index = 0
+        while index < size - 1 - k {
             current = current?.next
+            index += 1
         }
+        return current
     }
+    
+    func sizeOfList() -> Int {
+        return size
+    }
+    
 }
-
 
 //test list
 var l = List<Int>()
@@ -67,20 +69,19 @@ l.append(element: 3)
 l.append(element: 8)
 assert(l.toArray() == [5,3,8])
 
-
-//test remove duplicates
+//test kth to last
 l = List<Int>()
-var arr = [Int]()
-for _ in 0...2 {
-    for i in 0...9 {
-        l.append(element: i)
-        arr.append(i)
+for i in 0...5 {
+    l.append(element: i)
+}
+for i in 0...5 {
+    if let ith = l.kToLast(k: i) {
+        assert(ith.data == l.sizeOfList() - 1 - i)
+    } else {
+        assert(false)
     }
 }
-
-assert(l.toArray() == arr)
-l.removeDuplicates()
-assert(l.toArray() == Array(0...9))
+assert(l.kToLast(k: 6) == nil)
 
 
 
