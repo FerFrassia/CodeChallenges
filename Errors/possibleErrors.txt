@@ -14,3 +14,5 @@ Swift:
 	Arrays: - fixed size: arr = [T?](repeating: nil, count: length)
 
 	Mutating: - cuando una función cambia las propiedades del struct
+
+	Protocols: - Multiple protocols is: <T: FirstProtocol & SecondProtocol>
